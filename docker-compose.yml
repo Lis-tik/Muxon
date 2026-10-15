@@ -1,0 +1,30 @@
+version: '3.9'
+
+services:
+  muxon:
+    build:
+      context: .
+    container_name: muxon-api
+    ports:
+      - "8000:8000"
+    environment:
+      APP_NAME: Muxon
+      APP_ENV: development
+      HOST: 0.0.0.0
+      PORT: 8000
+      INPUT_DIR: /data/input
+      OUTPUT_DIR: /data/output
+      TEMPLATE_DIR: /app/app/templates
+    volumes:
+      - .:/app
+      - ./data:/data
+      - ./outputs:/outputs
+    command: uvicorn app.main:app --host 0.0.0.0 --port 8000 --reload
+    restart: unless-stopped
+
+  redis:
+    image: redis:7-alpine
+    container_name: muxon-redis
+    ports:
+      - "6379:6379"
+    restart: unless-stopped

@@ -1,0 +1,14 @@
+{
+  "name": "social_vertical",
+  "description": "Vertical social video optimized for stories and reels",
+  "preset": {
+    "codec": "libx264",
+    "preset": "slow",
+    "crf": 22,
+    "fps": 30,
+    "width": 1080,
+    "height": 1920,
+    "audio_bitrate": "192k"
+  },
+  "output_extension": "mp4"
+}

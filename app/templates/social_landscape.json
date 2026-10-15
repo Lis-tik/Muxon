@@ -1,0 +1,14 @@
+{
+  "name": "social_landscape",
+  "description": "Landscape social video in H.264 with 1080p output",
+  "preset": {
+    "codec": "libx264",
+    "preset": "medium",
+    "crf": 23,
+    "fps": 30,
+    "width": 1920,
+    "height": 1080,
+    "audio_bitrate": "192k"
+  },
+  "output_extension": "mp4"
+}
