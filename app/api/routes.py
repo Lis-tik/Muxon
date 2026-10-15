@@ -2,6 +2,7 @@ from fastapi import APIRouter, HTTPException
 
 from app.core.template_repository import load_templates
 from app.services.job_service import process_job
+from app.services.system_info_service import service_system_info
 
 router = APIRouter()
 
@@ -31,3 +32,8 @@ def enqueue_render(job: dict):
         raise HTTPException(status_code=400, detail="template_name, input_path, and output_path are required")
 
     return process_job(template_name, input_path, output_path)
+
+
+@router.get("/services/system_info")
+def get_system_info():
+    return service_system_info()
