@@ -49,6 +49,7 @@ Self-hosted video processing service based on Python and FFmpeg.
 ├── scripts/
 ├── .env.example
 ├── .gitignore
+├── .python-version
 ├── Dockerfile
 ├── README.md
 ├── docker-compose.yml
@@ -59,11 +60,25 @@ Self-hosted video processing service based on Python and FFmpeg.
 
 ## Quick start
 
+Use CPython 3.14, matching the Docker image and pinned dependencies.
+
+Windows PowerShell:
+
+```powershell
+py -3.14 -m venv .venv
+.\.venv\Scripts\Activate.ps1
+python -m pip install -r requirements.txt
+```
+
+macOS / Linux:
+
 ```bash
-python -m venv .venv
-source .venv/bin/activate  # or .venv\Scripts\activate on Windows
-pip install -r requirements.txt
+python3.14 -m venv .venv
+source .venv/bin/activate
+python -m pip install -r requirements.txt
 uvicorn app.main:app --reload
 ```
+
+On Windows, start the service with `python -m uvicorn app.main:app --reload`.
 
 Then open http://localhost:8000/docs
